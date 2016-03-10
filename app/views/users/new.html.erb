@@ -1,8 +1,31 @@
 <h1>Sign up!</h1>
 
-<form method="get">
-Name: <input type="text" name="name"><br>
-Email: <input type="email" name="email"><br>
-Password: <input type="password" name="password"><br>
-<input type="submit" value="Submit">
-</form>
+<%= form_for(@user) do |f| %>
+<p>
+	<%= f.label :username %><br>
+	<%= f.text_field :username %>
+</p>
+<p>
+	<%= f.label :email %><br>
+	<%= f.email_field :email %>
+</p>
+<p>
+	<%= f.label :password %><br>
+	<%= f.password_field :password %>
+</p>
+
+<p><%= f.submit "Submit" %></p>
+<% end %>
+ 
+<!--<%= form_tag("/users", method: "post") do %>
+	<%= label_tag(:username, "Username:") %>
+	<%= text_field_tag(:username) %><br>
+
+	<%= label_tag(:email, "Email") %>
+	<%= text_field_tag(:email) %><br>
+
+	<%= label_tag(:password, "Password") %>
+	<%= password_field_tag(:password) %><br>
+
+	<%= submit_tag("Submit") %>
+<% end %>-->
